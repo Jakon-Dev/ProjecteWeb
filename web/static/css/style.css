@@ -1,0 +1,258 @@
+/* General styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0f1923;
+    color: #f5f5f5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    color: #f5f5f5;
+}
+
+a:hover {
+    color: #ff4655;
+}
+
+/* Header styles */
+header {
+    background-color: #1f2933;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ff4655;
+}
+
+.nav-links a {
+    margin-left: 1.5rem;
+    font-weight: 500;
+}
+
+/* Main content */
+main {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-container,
+.login-container {
+    background-color: #1e2a38;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: #cccccc;
+}
+
+/* Forms */
+.login-form,
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 0.7rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #2f3e4d;
+    color: white;
+}
+
+input:focus {
+    outline: 2px solid #ff4655;
+}
+
+/* Buttons */
+button,
+.button {
+    background-color: #ff4655;
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra negra por defecto */
+}
+
+button:hover,
+.button:hover {
+    background-color: #e03a4d;
+    color: #ffffff;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3); /* Sombra blanca al hacer hover */
+}
+
+
+/* Guest login link */
+.guest-actions {
+    margin-top: 1.5rem;
+}
+
+.guest-actions .button {
+    display: inline-block;
+    width: auto;
+}
+
+/* Error message */
+.error-message {
+    background-color: #ff4e4e;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+/* Form links */
+.form-link {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Footer */
+footer {
+    background-color: #1f2933;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+
+.agents-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+    justify-content: center;
+}
+
+/* Agrupador que contiene tarjeta + habilidades */
+.agent-hover-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Tarjeta del agente */
+.agent-card {
+    background-color: #1e2a38;
+    border-radius: 15px;
+    padding: 1rem;
+    width: 250px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.agent-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.15);
+}
+
+.agent-image {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 0.8rem;
+    object-fit: cover;
+}
+
+.agent-role {
+    color: #cccccc;
+}
+
+/* Habilidades fuera de la tarjeta, ocultas por defecto */
+.agent-abilities {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #0f1923ef;
+    color: #f5f5f5;
+    border-radius: 10px;
+    width: 500px;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+    position: absolute;
+    top: 340px;
+    z-index: 10;
+    cursor: default;
+}
+
+/* Mostrar habilidades al hacer hover en la tarjeta */
+.agent-hover-container:hover:not(:has(.agent-abilities:hover)) .agent-abilities {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+.agent-abilities p {
+    color: #ff4655;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.agent-abilities ul {
+    list-style: disc;
+    padding-left: 1.2rem;
+}
+
+.agent-abilities li {
+    margin-bottom: 0.4rem;
+    color: #cccccc;
+    font-size: 0.9rem;
+}
+

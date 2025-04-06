@@ -1,0 +1,28 @@
+{% extends 'main/base.html' %}
+
+{% block title %}VALO-Stats: Agents{% endblock %}
+
+{% block content %}
+<div class="agents-wrapper">
+    {% for agent in agents %}
+        <div class="agent-hover-container">
+            <div class="agent-card">
+                <h2>{{ agent.name }}</h2>
+                <img src="{{ agent.icon }}" alt="{{ agent.name }} image" class="agent-image">
+                <p class="agent-role"><strong>Role:</strong> {{ agent.role }}</p>
+            </div>
+
+            <div class="agent-abilities">
+                <p><strong>Abilities:</strong></p>
+                <ul>
+                    <li><strong>{{ agent.ability1.name }}:</strong> {{ agent.ability1.description }}</li>
+                    <li><strong>{{ agent.ability2.name }}:</strong> {{ agent.ability2.description }}</li>
+                    <li><strong>{{ agent.grenade.name }}:</strong> {{ agent.grenade.description }}</li>
+                    <li><strong>{{ agent.ultimate.name }}:</strong> {{ agent.ultimate.description }}</li>
+                </ul>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %} 

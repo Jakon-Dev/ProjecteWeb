@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+
+{% block title %}VALO-Stats{% endblock %}
+
+{% block content %}
+<div class="home-container">
+    {% if user.is_authenticated %}
+        <h1>Welcome, {{ user.username }}!</h1>
+        <p>Access the data you want to access.</p>
+        <div class="user-actions">
+            <a href="{% url 'agents' %}" class="button">Agents</a>
+        </div>
+    {% else %}
+        <h1>Welcome to VALO-Stats!!</h1>
+        <p>Please log in to access the website content.</p>
+        <div class="guest-actions">
+            <a href="{% url 'login' %}" class="button">Login</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %} 
